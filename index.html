@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <link  href="./icon/logo.ico"  rel="shortcut icon" type="image/x-icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MXQWQ Blog</title>
+  <link rel="stylesheet" type="text/css" href="./css/about.css"/>
+  <!-- 关于栏样式 -->
+  <link href="https://npm.elemecdn.com/font6pro@6.0.1/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./css/body.css"/>
+  <link rel="stylesheet" type="text/css" href="./css/channel.css"/>
+  <link rel="stylesheet" type="text/css" href="./css/comments.css"/>
+  <link rel="stylesheet" type="text/css" href="./css/dark-mode.css"/>
+  <link rel="stylesheet" type="text/css" href="./css/music.css"/>
+  <link rel="stylesheet" type="text/css" href="./css/navbar.css"/>
+  <link rel="stylesheet" type="text/css" href="./css/news.css"/>
+  <link rel="stylesheet" type="text/css" href="./css/other.css"/>
+  <link rel="stylesheet" type="text/css" href="./css/search.css"/>
+  <link rel="stylesheet" type="text/css" href="./assets/waifu.css"/>
+  <!-- 访问量计数器 -->
+  <script async src="https://busuanzi.icodeq.com/busuanzi.pure.mini.js"></script>
+  <script src="./js/dark.js"></script>
+  <script src="./js/music.js"></script>
+  <script src="./js/search.js"></script>
+  <script src="./js/title.js"></script>
+  <!-- 评论区 -->
+  <script src='https:////unpkg.com/valine/dist/Valine.min.js'></script>
+  <script src="./assets/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="navbar">
+  <div class="left-section">
+    <a href="#">首页</a>
+    <a href="#content">热门频道</a>
+    <a href="#news">热点文章</a>
+    <a href="#vcomments">评论区</a>
+    <a href="#about">关于我们</a>
+  </div>
+  <div class="right-section">
+    <button class="search-button" id="searchButton" onclick="toggleSearchCard()">🔍</button>
+    <button class="mode-toggle">🌗</button>
+  </div>
+</div>
+
+<!-- 导航栏搜索 -->
+<<div class="search-card" id="searchCard">
+  <!-- 导航栏关闭按键 -->
+  <button class="close-button" onclick="toggleSearchCard()">✖</button>
+  <div class="search-input-container">
+    <select id="searchType" class="search-select" onchange="updatePlaceholder()">
+      <option value="article" selected>搜索文章</option>
+      <option value="author">搜索作者</option>
+    </select>
+    <input type="text" id="searchInput" placeholder="搜索文章...">
+    <button class="search-action-button" onclick="performSearch()">搜索</button>
+  </div>
+  <!--搜索栏部分文章，用法
+  <div>
+    <a href="跳转链接" target="_blank">
+      <img src="图片" alt="">
+      <p>标题</p>
+    </a>
+  </div>
+  -->
+  <div class="card-content">
+    <div>
+      <a href="https://dreamplace.cn/%e6%a2%a6%e4%b9%a1%e5%b4%a9%e9%93%812-2%e5%89%a7%e6%83%85%e6%8c%87%e4%bb%a4%e6%9c%8d%e6%94%bb%e7%95%a5%e9%97%ae%e9%a2%98/" target="_blank">
+        <img src="./img/崩坏：星穹铁道.png" alt="崩坏：星穹铁道">
+        <p>崩坏：星穹铁道 2.2公益服分享</p>
+      </a>
+    </div>
+    <div>
+      <a href="https://dreamplace.cn/%e5%8e%9f%e7%a5%9e%e8%90%8c%e6%96%b0%e5%bf%85%e7%9c%8b%e6%94%bb%e7%95%a5%e9%ad%82%e6%9c%8d/" target="_blank">
+        <img src="./img/原神.png" alt="原神">
+        <p>原神 4.5公益服分享</p>
+      </a>
+    </div>
+    <div>
+      <a href="https://miui.ink/%E5%B4%A9%E5%9D%8F3-%E5%8D%95%E6%9C%BA%E7%89%88-%E6%9C%AC%E5%9C%B0%E4%B8%80%E9%94%AE%E7%AB%AF/" target="_blank">
+        <img src="./img/崩坏3.png" alt="崩坏3">
+        <p>崩坏3 7.0公益服本地搭建教程</p>
+      </a>
+    </div>
+    <div>
+      <a href="https://zzz.mihoyo.com/" target="_blank">
+        <img src="./img/绝区零.jpg" alt="绝区零">
+        <p>绝区零</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="search-bar-container">
+  <!-- 插入视频背景 -->
+  <video autoplay muted loop id="background-video">
+    <source src="./img/80835.mp4" type="video/mp4">
+    您的浏览器不支持视频标签。
+  </video>
+  <!-- 搜索 -->
+  <div class="search-bar-content">
+    <select id="searchTypeMain" class="search-select" onchange="updatePlaceholderMain()">
+      <option value="article" selected>搜索文章</option>
+      <option value="author">搜索作者</option>
+    </select>
+    <input type="text" id="searchInputMain" placeholder="搜索文章...">
+    <button class="search-button" onclick="performSearchMain()">搜索</button>
+  </div>
+</div>
+
+<main class="main-content">
+  <section>
+    <div class="section-title">热门频道</div>
+    <div class="channels" id="content">
+<!-- 热门频道，用法:
+  <a href="跳转网页链接" class="channel">
+    <img src="图片" alt="">
+    <div>
+      <div class="channel-icon">标题</div>
+      <p>简介</p>
+    </div>
+  </a>
+-->
+      <a href="weixin://contacts/profile/微信号" class="channel">
+        <img src="./img/微信.webp" alt="微信">
+        <div>
+          <div class="channel-icon">微信</div>
+          <p>点击加我</p>
+        </div>
+      </a>
+      <a href="QQ添加好友链接" class="channel">
+        <img src="./img/QQ.png" alt="QQ">
+        <div>
+          <div class="channel-icon">QQ</div>
+          <p>点击加我</p>
+        </div>
+      </a>
+      <a href="链接" class="channel">
+        <img src="./img/Server.png" alt="服务器监控页">
+        <div>
+          <div class="channel-icon">服务器监控页</div>
+          <p>服务器监控页面</p>
+        </div>
+      </a>
+      <a href="链接" class="channel">
+        <img src="./img/pan.png" alt="资源下载">
+        <div>
+          <div class="channel-icon">资源</div>
+          <p>资源下载</p>
+        </div>
+      </a>
+      <a href="https://genshin.titlecan.cn/" class="channel">
+        <img src="./img/ys.png" alt="原神">
+        <div>
+          <div class="channel-icon">原神</div>
+          <p>原神启动！</p>
+        </div>
+      </a>
+      <a href="https://github.com/VsingerQWQ/Myhtml" class="channel">
+        <img src="./img/github.png" alt="源码下载">
+        <div>
+          <div class="channel-icon">源码下载</div>
+          <p>点击下载网页源码</p>
+        </div>
+      </a>
+    </div>
+  </section>
+  <section>
+    <div class="section-title">热点文章</div>
+    <div class="news" id="news">
+<!-- 热门文章，用法:
+ <a href="跳转链接" class="news-item">
+        <img src="图片" alt="崩坏：星穹铁道">
+        <div>
+          <div class="news-item-title">标题</div>
+          <p>简介</p>
+        </div>
+  </a>
+-->
+      <a href="https://dreamplace.cn/%e6%a2%a6%e4%b9%a1%e5%b4%a9%e9%93%812-2%e5%89%a7%e6%83%85%e6%8c%87%e4%bb%a4%e6%9c%8d%e6%94%bb%e7%95%a5%e9%97%ae%e9%a2%98/" class="news-item">
+        <img src="./img/崩坏：星穹铁道.png" alt="崩坏：星穹铁道">
+        <div>
+          <div class="news-item-title">崩坏：星穹铁道2.2公益服</div>
+          <p>崩坏：星穹铁道2.2公益服分享</p>
+        </div>
+      </a>
+      <a href="https://dreamplace.cn/%e5%8e%9f%e7%a5%9e%e8%90%8c%e6%96%b0%e5%bf%85%e7%9c%8b%e6%94%bb%e7%95%a5%e9%ad%82%e6%9c%8d/" class="news-item">
+        <img src="./img/原神.png" alt="原神">
+        <div>
+          <div class="news-item-title">原神4.5公益服</div>
+          <p>原神4.5公益服分享</p>
+        </div>
+      </a>
+      <a href="https://miui.ink/%E5%B4%A9%E5%9D%8F3-%E5%8D%95%E6%9C%BA%E7%89%88-%E6%9C%AC%E5%9C%B0%E4%B8%80%E9%94%AE%E7%AB%AF/" class="news-item">
+        <img src="./img/崩坏3.png" alt="崩坏3">
+        <div>
+          <div class="news-item-title">崩坏3 7.0公益服</div>
+          <p>崩坏3 7.0公益服本地搭建教程</p>
+        </div>
+      </a>
+      <a href="https://zzz.mihoyo.com/" class="news-item">
+        <img src="./img/绝区零.jpg" alt="绝区零">
+        <div>
+          <div class="news-item-title">绝区零</div>
+          <p>绝区零</p>
+        </div>
+      </a>
+      <a href="链接" class="news-item">
+        <img src="./img/天使降临到了我的身边！.webp" alt="天使降临到了我的身边！">
+        <div>
+          <div class="news-item-title">动漫《天使降临到了我的身边！》</div>
+          <p>星野宫子（上田丽奈 配音）表面看来只是一个非常平凡的女大学生，实际上却拥有社交障碍，无法和人正常的交往，因此常常宅在家中，孤独的制作着华丽的Cosplay服装。星野日向（长江里加 配音）是宫子的妹妹，和姐姐阴郁的性格不同，日向非常的开朗健谈，而且深深的爱戴着姐姐。
+            　　一天，日向将自己在学校的好朋友白咲花（指出球亚 配音）带到家中做客，宫子在见到小花的一瞬间，竟然深深的被她给迷住了。但是宫子的个性令她无法坦率的和小花交朋友，为了成为能够配得上小花的人，宫子开始了努力。随着时间的推移，宫子和小花之间的距离渐渐拉近。</p>
+        </div>
+      </a>
+      <a href="链接" class="news-item">
+        <img src="./img/熊出没之逆转时空.webp" alt="熊出没之逆转时空">
+        <div>
+          <div class="news-item-title">电影《熊出没之逆转时空》4K</div>
+          <p>《熊出没·逆转时空》是一部值得一看的动画电影。它不仅仅延续了“熊出没”系列的高品质，还在故事情节、角色塑造和视觉效果等方面有了更大的突破。在影片特效和画质上，该片已经不输于国际主流电影片商的普遍水平。片中场景的复杂多变，让观众看得过瘾。“似曾相识”是观影经验丰富的观众在看电影时常有的感受和困惑。如果你喜欢冒险、奇幻和温情的故事，那么这部电影一定不会让你失望。</p>
+        </div>
+      </a>
+    </div>
+  </section>
+  <!--评论模块还有下面的script也是-->
+  <center>
+    <div class="comments" id="vcomments"></div>
+  </center>
+  <!-- 用法见https://valine.js.org/-->
+  <script>
+    new Valine({
+      visitor: true,
+      el: '#vcomments',
+      avatar: 'mp',
+      meta: ['nick','mail'],
+      enableQQ: true,
+      appId: 'ID',
+      appKey: 'KEY',
+      placeholder: "有什么问题欢迎评论区留言~么么哒",
+      notify: true,
+      path: 'window.location.pathname',
+      pageSize: '5',
+      highlight: false,
+      avatarForce: false
+    })
+  </script>
+  <!--关于栏-->
+  <center class="about" id="about">
+    <div style="font-size: 13px; font-weight: bold;">
+                <span class="about-item">
+                    <a class="about-link" href="QQ添加好友链接"
+                       target="_blank">
+                        <i class="fab fa-qq" style="color:#409EFF" aria-hidden="true">
+                        </i>
+                        QQ |
+                    </a>
+                </span>
+      <span class="about-item">
+                    <a class="about-link" href="mailto:邮箱" target="_blank">
+                        <i class="fa-duotone fa-envelope-open" style="color:#409EFF" aria-hidden="true">
+                        </i>
+                        邮箱 |
+                    </a>
+                </span>
+      <span class="about-item">
+                    <a class="about-link" href="#vcomments" target="_blank">
+                        <i class="fas fa-comment-lines" style="color:#409EFF;" aria-hidden="true">
+                        </i>
+                        留言 |
+                    </a>
+                </span>
+      <span class="about-item">
+                    <a class="about-link" href="网盘链接" target="_blank">
+                        <i class="fa fa-cloud-download" style="color:#409EFF;" aria-hidden="true">
+                        </i>
+                        云盘 |
+                    </a>
+                </span>
+      <br />
+      <!-- 访问量计数器 -->
+      <span>
+        本"<span style="color: rgb(13, 109, 252); font-weight: bold;"><a  class="about-Visits" href="#">站</a></span>"访问量 <span id="busuanzi_value_page_pv" style="color: rgb(13, 109, 252); font-weight: bold;"></span> 次 本站总访问量 <span id="busuanzi_value_site_pv" style="color: rgb(13, 109, 252); font-weight: bold;"></span>                次 本站总访客数 <span id="busuanzi_value_site_uv" style="color: rgb(13, 109, 252); font-weight: bold;"></span> 人
+      </span>
+      <br />
+      <!--添加备案信息-->
+      <span class="about-item">
+                    <a class="about-link" href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">
+                        <i class="fa-solid fa-shield-check" style="color:#409EFF;" aria-hidden="true">
+                        </i>
+                        提瓦特 ICP备1145141919810号
+                    </a>
+                </span>
+    </div>
+  </center>
+</main>
+
+<!-- 播放器HTML -->
+<div class="player-container" id="player">
+  <div class="player-header">
+    <h3>MXQWQ Blog - 音乐播放器</h3>
+    <div class="controls">
+      <!-- 切换播放模式按钮 -->
+      <button id="mode-btn" title="切换播放模式">🔁</button>
+      <!-- 播放模式选择下拉菜单 -->
+      <select id="mode-select" title="选择播放模式">
+        <option value="0">列表播放</option>
+        <option value="1">单曲循环</option>
+        <option value="2">随机播放</option>
+      </select>
+      <!-- 展开专辑列表合集按钮 -->
+      <button id="toggle-album-collection" title="展开专辑列表合集">📂</button>
+      <!-- 显示歌词按钮 -->
+      <button id="lyrics-btn" title="显示歌词">🎤</button>
+    </div>
+  </div>
+  <div class="player-content">
+    <div>
+      <div class="scrolling-container">
+        <!-- 当前播放 -->
+        <div class="label-container">当前播放:</div>
+        <!-- 当前歌曲信息 -->
+        <div class="text-container">
+          <span id="current-song" class="scrolling-text">1. HOYO-MiX - Any Last Words# 尽在吾辈</span>
+        </div>
+      </div>
+    </div>
+    <!-- 音乐播放器控件 -->
+    <audio id="audio-player" controls preload="auto">
+      <source src="./music/原神/HOYO-MiX - Any Last Words 尽在吾辈.flac" type="audio/mpeg">
+      您的浏览器不支持 audio 标签。
+    </audio>
+    <!-- 专辑列表容器，默认隐藏 -->
+    <div id="album-collection" style="display: none;">
+      <div id="album-list">
+        <!--
+        <div class="album" data-album="album1">//album1为专辑编号
+          <div class="album-background" style="background-image: url('专辑背景图');"></div>
+          <img src="专辑封面图" alt="崩坏3专辑封面" class="album-icon">
+          <div class="album-info">
+            <h4 class="album-title">标题</h4>
+            <p class="album-description">简介</p>
+            <button class="toggle-album" data-album="album1">展开</button>//data-album和上方相同
+            <ul class="music-list" data-album="album1" style="display:none;">//data-album和上方相同
+              <li data-src="音乐文件" data-lyrics="歌词文件">音乐名字标题</li>
+              <li data-src="音乐文件" data-lyrics="歌词文件">音乐名字标题</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    -->
+        <div class="album" data-album="album1">
+          <div class="album-background" style="background-image: url('./music/原神/img/背景.png');"></div>
+          <img src="./music/原神/img/专辑.jpg" alt="原神专辑封面" class="album-icon">
+          <div class="album-info">
+            <h4 class="album-title">原神-闪耀的群星</h4>
+            <p class="album-description">原神</p>
+            <button class="toggle-album" data-album="album1">展开</button>
+            <ul class="music-list" data-album="album1" style="display:none;">
+              <li data-src="./music/原神/hanser、泠鸢yousa - 让风告诉你 (日文版).flac" data-lyrics="hanser、泠鸢yousa - 让风告诉你 (日文版).lrc">1. hanser、泠鸢yousa - 让风告诉你 (日文版)</li>
+              <li data-src="./music/原神/HOYO-MiX - Any Last Words 尽在吾辈.flac" data-lyrics="HOYO-MiX - Any Last Words 尽在吾辈.lrc">2. HOYO-MiX - Any Last Words# 尽在吾辈</li>
+            </ul>
+          </div>
+        </div>
+        <div class="album" data-album="album2">
+          <div class="album-background" style="background-image: url('./music/崩坏：星穹铁道/img/背景.png');"></div>
+          <img src="./music/崩坏：星穹铁道/img/专辑.png" alt="崩坏：星穹铁道专辑封面" class="album-icon">
+          <div class="album-info">
+            <h4 class="album-title">星空剧场</h4>
+            <p class="album-description">崩坏：星穹铁道</p>
+            <button class="toggle-album" data-album="album2">展开</button>
+            <ul class="music-list" data-album="album2" style="display:none;">
+              <li data-src="./music/崩坏：星穹铁道/hanser - 越权访问-崩坏 星穹铁道.flac" data-lyrics="hanser - 越权访问-崩坏 星穹铁道.lrc">1. hanser - 越权访问-崩坏#星穹铁道</li>
+            </ul>
+          </div>
+        </div>
+        <div class="album" data-album="album3">
+          <div class="album-background" style="background-image: url('./music/崩坏3/img/背景.png');"></div>
+          <img src="./music/崩坏3/img/专辑.jpg" alt="崩坏3专辑封面" class="album-icon">
+          <div class="album-info">
+            <h4 class="album-title">跨越终焉之日</h4>
+            <p class="album-description">崩坏3</p>
+            <button class="toggle-album" data-album="album3">展开</button>
+            <ul class="music-list" data-album="album3" style="display:none;">
+              <li data-src="./music/崩坏3/hanser - Cyberangel.flac" data-lyrics="hanser - Cyberangel.lrc">1. hanser - Cyberangel</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="lyrics-container"></div>
+  </div>
+</div>
+
+<!-- Live2d -->
+<div class="waifu">
+  <div class="waifu-tips"></div>
+  <!-- 提示框 -->
+  <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+  <!-- live2d模型canvas -->
+  <div class="waifu-tool">
+    <!-- 工具栏 -->
+    <span class="fui-home"></span>
+    <span class="fui-chat"></span>
+    <span class="fui-eye"></span>
+    <span class="fui-user"></span>
+    <span class="fui-photo"></span>
+    <span class="fui-info-circle"></span>
+    <span class="fui-cross"></span>
+  </div>
+</div>
+
+<script src="assets/waifu-tips.js"></script>
+<!-- 引入waifu-tips.js脚本 -->
+<script src="assets/live2d.js"></script>
+<!-- 引入live2d.js脚本 -->
+<script type="text/javascript">initModel("assets/")</script>
+<!-- 初始化模型 -->
+</body>
+</html>

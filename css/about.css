@@ -1,0 +1,15 @@
+/* 控制链接的外观 */
+.about-link{
+    /* 去除下划线 */
+    text-decoration: none;
+    /* 设置文字颜色为接近黑色的不透明色 */
+    color: rgba(0, 0, 0, 0.85);
+}
+
+/* 控制访问链接的外观 */
+.about-Visits{
+    /* 去除下划线 */
+    text-decoration: none;
+    /* 设置文字颜色为接近淡蓝色的不透明色 */
+    color: rgba(102, 204, 255, 0.85);
+}

@@ -1,0 +1,39 @@
+/* .comments类用于设置评论区的样式 */
+.comments{
+    /* 设置宽度为96%或最大940px */
+    width: min(96%, 940px);
+    /* 设置为列方向的弹性布局 */
+    flex-direction: column;
+    /* 设置行间距 */
+    row-gap: var(--hope-space-2);
+    /* 设置边框圆角 */
+    border-radius: var(--hope-radii-xl);
+    /* 设置内边距 */
+    padding: var(--hope-space-2);
+    /* 设置阴影效果 */
+    box-shadow: var(--hope-shadows-lg);
+    /* 设置背景颜色为白色半透明，并强制应用 */
+    background-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* .vedit类用于设置输入栏里面跳舞的小人背景图 */
+.vedit{
+    /* 设置背景图 */
+    background-image: url(../img/OuNiJiang.gif);
+    /* 设置背景图的大小为包含 */
+    background-size: contain;
+    /* 设置背景图不重复 */
+    background-repeat: no-repeat;
+    /* 设置背景图的位置为右下角 */
+    background-position: right bottom;
+    /* 设置过渡效果 */
+    transition: all 0.25s ease-in-out 0s;
+}
+
+/* 当textarea输入框获取焦点时，调整背景图的位置 */
+textarea#comment-textarea:focus{
+    /* 设置背景图垂直位置 */
+    background-position-y: 120px;
+    /* 设置过渡效果 */
+    transition: all 0.25s ease-in-out 0s;
+}

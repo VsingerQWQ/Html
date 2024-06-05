@@ -1,0 +1,66 @@
+/* 新闻容器样式 */
+.news {
+    display: flex; /* 使用Flex布局 */
+    flex-wrap: wrap; /* 换行显示 */
+    justify-content: space-between; /* 两端对齐 */
+    width: 60vw; /* 宽度为视口宽度的60% */
+    margin: 0 auto; /* 使内容居中 */
+}
+
+/* 新闻项样式 */
+.news-item {
+    width: calc(50% - 10px); /* 每个项占容器宽度的一半减去间距 */
+    padding: 10px; /* 内边距 */
+    background-color: rgba(255, 255, 255, 0.6); /* 半透明白色背景 */
+    border-radius: 10px; /* 圆角边框 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+    margin: 10px 0; /* 上下间距10px */
+    text-decoration: none; /* 去除文本装饰 */
+    color: #333333; /* 文字颜色 */
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s; /* 过渡效果 */
+    display: flex; /* 使用Flex布局 */
+    align-items: center; /* 垂直居中对齐 */
+    box-sizing: border-box; /* 盒子模型设置为border-box */
+    height: 100px; /* 固定高度 */
+}
+
+/* 新闻项悬停样式 */
+.news-item:hover {
+    transform: translateY(-5px); /* 向上移动5px */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 加强阴影效果 */
+    background-color: rgba(255, 192, 203, 0.6); /* 半透明粉色背景 */
+}
+
+/* 新闻项图片样式 */
+.news-item img {
+    width: 160px; /* 调整图片宽度 */
+    height: 90px; /* 固定图片高度 */
+    object-fit: cover; /* 覆盖整个图片容器 */
+    margin-right: 5px; /* 图片右外边距 */
+    border-radius: 10px; /* 圆角边框 */
+}
+
+/* 新闻项标题样式 */
+.news-item-title {
+    font-size: 14px; /* 标题字体大小 */
+    color: #007bff; /* 标题颜色 */
+    margin-bottom: 5px; /* 标题与段落间距 */
+    white-space: nowrap; /* 禁止换行 */
+    overflow: hidden; /* 隐藏溢出内容 */
+    text-overflow: ellipsis; /* 溢出显示省略号 */
+}
+
+/* 新闻项段落样式 */
+.news-item p {
+    font-size: 12px; /* 段落字体大小 */
+    color: #666666; /* 段落颜色 */
+    white-space: nowrap; /* 禁止换行 */
+    overflow: hidden; /* 隐藏溢出内容 */
+    text-overflow: ellipsis; /* 溢出显示省略号 */
+}
+
+/* 新闻项内容容器样式 */
+.news-item div {
+    flex: 1; /* 内容填满剩余空间 */
+    min-width: 0; /* 避免内容溢出 */
+}

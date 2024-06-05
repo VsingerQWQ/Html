@@ -1,0 +1,293 @@
+/* 音乐播放器容器样式 */
+.player-container {
+    position: fixed; /* 固定定位 */
+    bottom: 20px; /* 距底部20px */
+    right: -295px; /* 初始位置在视窗外 */
+    width: 300px; /* 宽度300px */
+    background-color: rgba(255, 255, 255, 0.5); /* 半透明白色背景 */
+    backdrop-filter: blur(10px); /* 背景模糊效果 */
+    -webkit-backdrop-filter: blur(10px); /* 兼容Safari的背景模糊效果 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+    border-radius: 10px; /* 圆角边框 */
+    overflow: hidden; /* 隐藏溢出内容 */
+    transition: right 0.5s, width 0.5s, height 0.5s; /* 过渡效果 */
+    z-index: 1000; /* 层级 */
+    border: 4px solid transparent; /* 透明边框 */
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
+    linear-gradient(to right, rgba(255, 192, 203, 0.4), rgba(255, 255, 255, 0.4), rgba(102, 204, 255, 0.4)); /* 渐变背景 */
+    background-origin: border-box; /* 背景起始点为边框 */
+    background-clip: padding-box, border-box; /* 背景裁剪 */
+}
+
+/* 鼠标悬停播放器容器时 */
+.player-container:hover {
+    right: 20px; /* 位置移到视窗内 */
+    height: auto; /* 自动高度 */
+}
+
+/* 播放器头部样式 */
+.player-header,
+.player-content button,
+.player-content select {
+    background-color: #007BFF; /* 背景颜色 */
+    color: white; /* 文字颜色 */
+    cursor: pointer; /* 鼠标指针样式 */
+    font-family: '原神', sans-serif; /* 自定义字体 */
+}
+
+.player-header {
+    display: flex; /* 使用Flex布局 */
+    flex-direction: column; /* 纵向排列 */
+    justify-content: center; /* 垂直居中对齐 */
+    align-items: center; /* 水平居中对齐 */
+    padding: 10px; /* 内边距 */
+    border-radius: 10px 10px 0 0; /* 圆角边框 */
+}
+
+/* 播放器标题样式 */
+.player-header h3 {
+    margin: 0; /* 无外边距 */
+    font-size: 16px; /* 字体大小 */
+    text-align: center; /* 居中对齐 */
+}
+
+/* 控件区域样式 */
+.controls {
+    display: flex; /* 使用Flex布局 */
+    flex-direction: row; /* 横向排列 */
+    gap: 5px; /* 控件间距 */
+    justify-content: center; /* 水平居中对齐 */
+    margin-top: 10px; /* 顶部间距 */
+}
+
+/* 美化select元素 */
+select#mode-select {
+    border: 2px solid rgba(255, 192, 203, 0.4); /* 边框颜色 */
+    background-color: rgba(102, 204, 255, 0.5); /* 背景颜色 */
+    color: white; /* 文字颜色 */
+    padding: 5px 10px; /* 内边距 */
+    border-radius: 5px; /* 圆角边框 */
+    font-family: '原神', sans-serif; /* 自定义字体 */
+    cursor: pointer; /* 鼠标指针样式 */
+    appearance: none; /* 去除默认样式 */
+    -webkit-appearance: none; /* 兼容Safari */
+    -moz-appearance: none; /* 兼容Firefox */
+    text-align: center; /* 文字居中 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+    transition: background-color 0.2s, box-shadow 0.2s; /* 过渡效果 */
+}
+
+/* 鼠标悬停select元素时 */
+select#mode-select:hover {
+    background-color: #0056b3; /* 背景颜色 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 阴影效果 */
+}
+
+select#mode-select option {
+    background-color: white; /* 背景颜色 */
+    color: #007BFF; /* 文字颜色 */
+    font-family: '原神', sans-serif; /* 自定义字体 */
+}
+
+/* 美化按钮元素 */
+.player-content button,
+.player-content select {
+    display: flex; /* 使用Flex布局 */
+    align-items: center; /* 垂直居中对齐 */
+    justify-content: center; /* 水平居中对齐 */
+    width: 32px; /* 宽度 */
+    height: 32px; /* 高度 */
+    border: none; /* 无边框 */
+    border-radius: 5px; /* 圆角边框 */
+    font-size: 16px; /* 字体大小 */
+    transition: background-color 0.2s, box-shadow 0.2s; /* 过渡效果 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+}
+
+/* 鼠标悬停按钮时 */
+.player-content button:hover,
+.player-content select:hover {
+    background-color: #0056b3; /* 背景颜色 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 阴影效果 */
+}
+
+/* 歌词容器样式 */
+#lyrics-container {
+    display: none; /* 默认隐藏 */
+    margin-top: 20px; /* 顶部间距 */
+    height: 200px; /* 高度 */
+    overflow-y: auto; /* 垂直滚动 */
+    border: 1px solid #ccc; /* 边框颜色 */
+    padding: 10px; /* 内边距 */
+    background: rgba(255, 255, 255, 0.8); /* 背景颜色 */
+}
+
+/* 专辑合集样式 */
+#album-collection {
+    max-height: 300px; /* 最大高度 */
+    overflow-y: auto; /* 垂直滚动 */
+}
+
+/* 专辑样式 */
+.album {
+    margin-bottom: 10px; /* 底部间距 */
+    border: 1px solid #ddd; /* 边框颜色 */
+    border-radius: 10px; /* 圆角边框 */
+    padding: 10px; /* 内边距 */
+    position: relative; /* 相对定位 */
+}
+
+/* 正在播放的专辑样式 */
+.album.active {
+    border: 2px solid pink; /* 边框颜色 */
+}
+
+/* 专辑背景样式 */
+.album-background {
+    position: absolute; /* 绝对定位 */
+    top: 0; /* 顶部对齐 */
+    left: 0; /* 左侧对齐 */
+    right: 0; /* 右侧对齐 */
+    bottom: 0; /* 底部对齐 */
+    background-size: cover; /* 背景覆盖 */
+    background-position: center; /* 背景居中 */
+    border-radius: 10px; /* 圆角边框 */
+    opacity: 0.3; /* 透明度 */
+    display: block; /* 显示背景 */
+}
+
+.album .music-list {
+    display: none; /* 默认隐藏音乐列表 */
+}
+
+/* 非活跃状态专辑背景 */
+.album:not(.active) .album-background {
+    display: block; /* 显示背景 */
+}
+
+/* 活跃状态专辑背景 */
+.album.active .album-background {
+    display: none; /* 隐藏背景 */
+}
+
+/* 专辑图标样式 */
+.album-icon {
+    width: 50px; /* 宽度 */
+    height: 50px; /* 高度 */
+    float: left; /* 左浮动 */
+    margin-right: 10px; /* 右外边距 */
+    border-radius: 5px; /* 圆角边框 */
+    display: none; /* 默认隐藏图标 */
+}
+
+/* 展开时显示专辑图标 */
+.album.active .album-icon {
+    display: block; /* 显示图标 */
+}
+
+/* 专辑信息样式 */
+.album-info {
+    overflow: hidden; /* 隐藏溢出内容 */
+}
+
+/* 专辑标题样式 */
+.album-title {
+    text-align: center; /* 居中对齐 */
+    font-size: 18px; /* 字体大小 */
+    margin: 0; /* 无外边距 */
+    font-family: '原神', sans-serif; /* 自定义字体 */
+}
+
+/* 专辑描述样式 */
+.album-description {
+    text-overflow: ellipsis; /* 文本溢出省略号 */
+    white-space: nowrap; /* 不换行 */
+    overflow: hidden; /* 隐藏溢出内容 */
+    margin: 5px 0; /* 上下外边距 */
+    font-size: 14px; /* 字体大小 */
+    color: #666; /* 文字颜色 */
+    font-family: '原神', sans-serif; /* 自定义字体 */
+}
+
+/* 音乐列表样式 */
+.music-list {
+    margin-top: 10px; /* 顶部间距 */
+    list-style: none; /* 无列表样式 */
+    padding: 0; /* 无内边距 */
+}
+
+.music-list li {
+    cursor: pointer; /* 鼠标指针样式 */
+    padding: 5px 0; /* 内边距 */
+}
+
+/* 鼠标悬停音乐列表项时 */
+.music-list li:hover {
+    background-color: #ffcccb; /* 背景颜色 */
+}
+
+/* 正在播放的音乐列表项 */
+.music-list li.active {
+    background-color: #66ccff; /* 背景颜色 */
+    color: white; /* 文字颜色 */
+}
+
+/* 切换专辑按钮样式 */
+.toggle-album {
+    margin-top: 10px; /* 顶部间距 */
+    display: block; /* 块级元素 */
+    background-color: #007BFF; /* 背景颜色 */
+    color: white; /* 文字颜色 */
+    padding: 5px 10px; /* 内边距 */
+    border: none; /* 无边框 */
+    border-radius: 5px; /* 圆角边框 */
+    cursor: pointer; /* 鼠标指针样式 */
+    position: absolute; /* 绝对定位 */
+    right: 10px; /* 右侧对齐 */
+    bottom: 10px; /* 底部对齐 */
+    font-family: '原神', sans-serif; /* 自定义字体 */
+}
+
+/* 鼠标悬停切换专辑按钮时 */
+.toggle-album:hover {
+    background-color: #0056b3; /* 背景颜色 */
+}
+
+/* 控制按钮样式 */
+#mode-btn,
+#toggle-album-collection,
+#lyrics-btn {
+    margin-bottom: 0; /* 无底部间距 */
+}
+
+/* 折叠状态样式 */
+.collapsed .player-header,
+.collapsed .controls,
+.collapsed #lyrics-container,
+.collapsed #album-collection,
+.collapsed .scrolling-container,
+.collapsed .text-container {
+    display: none; /* 隐藏内容 */
+}
+
+/* 折叠容器样式 */
+.collapsed {
+    right: -55px; /* 折叠位置 */
+    width: 60px; /* 宽度 */
+    height: 60px; /* 高度 */
+    box-shadow: none; /* 无阴影 */
+    border-radius: 50%; /* 圆形 */
+    background-color: rgba(255, 192, 203, 0.6); /* 背景颜色 */
+    transition: right 0.5s, width 0.5s, height 0.5s; /* 过渡效果 */
+}
+
+/* 鼠标悬停折叠容器时 */
+.collapsed:hover {
+    right: 20px; /* 展开位置 */
+    width: 300px; /* 宽度 */
+    height: auto; /* 自动高度 */
+    border-radius: 10px; /* 圆角边框 */
+    background-color: rgba(102, 204, 255, 0.8); /* 背景颜色 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+    transition: right 0.5s, width 0.5s, height 0.5s; /* 过渡效果 */
+}

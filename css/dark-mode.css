@@ -1,0 +1,189 @@
+/* 黑夜模式全局样式 */
+.dark-mode {
+    background-color: #1a1a1a; /* 设置深黑色背景 */
+    color: #b3b3b3; /* 设置灰色字体颜色 */
+}
+
+.dark-mode body,
+.dark-mode html {
+    background-color: #2e2e2e; /* 设置深灰色背景 */
+    color: #b3b3b3; /* 设置灰色字体颜色 */
+}
+
+/* 黑夜模式主内容区域样式 */
+.dark-mode .main-content {
+    background-color: rgba(40, 40, 40, 0.7); /* 设置深灰色背景 */
+    color: #b3b3b3; /* 设置灰色字体颜色 */
+}
+
+/* 黑夜模式部分标题样式 */
+.dark-mode .section-title {
+    color: #b3b3b3; /* 设置灰色字体颜色 */
+    border-bottom: 2px solid #4d4d4d; /* 设置底部边框 */
+}
+
+/* 黑夜模式导航栏样式 */
+.dark-mode .navbar {
+    background-color: rgba(26, 26, 26, 0.8); /* 设置深黑色透明背景 */
+    color: #b3b3b3; /* 设置灰色字体颜色 */
+}
+
+.dark-mode .navbar a {
+    color: #b3b3b3; /* 设置灰色字体颜色 */
+}
+
+.dark-mode .navbar a:hover {
+    background-color: rgba(51, 51, 51, 0.8); /* 设置深灰色背景 */
+}
+
+/* 黑夜模式搜索卡片样式 */
+.dark-mode .search-card {
+    background-color: transparent; /* 设置完全透明背景 */
+    color: #e0e0e0; /* 设置浅灰色字体颜色 */
+}
+
+.dark-mode .search-bar-content .search-button,
+.dark-mode .search-card .search-button {
+    color: #ffffff; /* 设置白色字体颜色 */
+}
+
+/* 黑夜模式频道模块样式 */
+.dark-mode .channel {
+    background-color: #333333; /* 设置深灰色背景 */
+    color: #b3b3b3; /* 设置灰色字体颜色 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* 设置深色阴影 */
+}
+
+/* 黑夜模式下搜索选择框样式 */
+.dark-mode .search-select {
+    background: transparent; /* 设置透明背景 */
+    color: #b3b3b3; /* 设置灰色字体颜色 */
+}
+
+.dark-mode .search-select::after {
+    color: #b3b3b3; /* 设置灰色箭头颜色 */
+}
+
+.dark-mode .search-input-container select,
+.dark-mode .search-bar-content select {
+    background: linear-gradient(90deg, rgba(173, 216, 230, 0.5), rgba(255, 182, 193, 0.5)); /* 设置渐变背景 */
+    color: #FFFFFF; /* 设置白色字体颜色 */
+}
+
+.dark-mode .search-select option {
+    background-color: rgba(60, 60, 60, 0.8); /* 设置选项背景颜色 */
+    color: #FFFFFF; /* 设置选项文字颜色 */
+}
+
+/* 黑夜模式关闭按钮样式 */
+.dark-mode .close-button {
+    color: #e0e0e0; /* 设置浅灰色字体颜色 */
+}
+
+/* 黑夜模式频道模块样式 */
+.dark-mode .channel {
+    background-color: #333333; /* 设置深灰色背景 */
+    color: #b3b3b3; /* 设置灰色字体颜色 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* 设置深色阴影 */
+}
+
+.dark-mode .channel-icon {
+    color: #66ccff; /* 设置浅蓝色图标颜色 */
+}
+
+.dark-mode .channel p {
+    color: #b3b3b3; /* 设置灰色字体颜色 */
+}
+
+.dark-mode .channel:hover {
+    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2); /* 设置鼠标悬停时阴影 */
+    background-color: rgba(255, 192, 203, 0.6); /* 设置鼠标悬停时背景颜色 */
+}
+
+/* 黑夜模式新闻模块样式 */
+.dark-mode .news-item {
+    background-color: #333333; /* 设置深灰色背景 */
+    color: #b3b3b3; /* 设置灰色字体颜色 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* 设置深色阴影 */
+}
+
+.dark-mode .news-item-title {
+    color: #66ccff; /* 设置浅蓝色标题颜色 */
+}
+
+.dark-mode .news-item p {
+    color: #b3b3b3; /* 设置灰色字体颜色 */
+}
+
+.dark-mode .news-item:hover {
+    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2); /* 设置鼠标悬停时阴影 */
+    background-color: rgba(102, 204, 255, 0.6); /* 设置鼠标悬停时背景颜色 */
+}
+
+/* 黑夜模式播放器样式 */
+.dark-mode .player-container,
+.dark-mode .player-header,
+.dark-mode .player-content button {
+    background-color: rgba(60, 60, 60, 0.8); /* 设置深灰色背景 */
+    color: rgba(200, 200, 200, 1); /* 设置白色字体颜色 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 设置深色阴影 */
+    border: 1px solid rgba(255, 105, 180, 0.8); /* 设置边框 */
+}
+
+.dark-mode .player-header {
+    background-color: rgba(100, 100, 100, 0.8); /* 设置深灰色背景 */
+}
+
+.dark-mode .player-content button:hover,
+.dark-mode .controls button.active {
+    background-color: rgba(120, 120, 120, 0.8); /* 设置深灰色背景 */
+    color: rgba(255, 105, 180, 1); /* 设置浅粉色字体颜色 */
+}
+
+.dark-mode .player-content ul li:hover,
+.dark-mode .player-content ul li.active {
+    background-color: rgba(120, 120, 120, 0.8); /* 设置深灰色背景 */
+    color: rgba(255, 105, 180, 1); /* 设置浅粉色字体颜色 */
+}
+
+.dark-mode #lyrics-container {
+    background-color: rgba(120, 120, 120, 0.8); /* 设置深灰色背景 */
+    color: rgba(220, 220, 220, 1); /* 设置白色字体颜色 */
+    border: 1px solid rgba(255, 105, 180, 0.6); /* 设置边框 */
+}
+
+/* 黑夜模式下的音乐模块折叠按钮样式 */
+.dark-mode .collapsed {
+    right: 20px; /* 设置右侧偏移 */
+    width: 60px; /* 设置宽度 */
+    height: 60px; /* 设置高度 */
+    box-shadow: none; /* 移除阴影 */
+    border-radius: 50%; /* 设置圆形 */
+    background-color: rgba(60, 60, 60, 0.8); /* 设置深灰色背景 */
+    transition: right 0.5s, width 0.5s, height 0.5s; /* 设置过渡效果 */
+}
+
+.dark-mode .collapsed:hover {
+    right: 20px; /* 设置右侧偏移 */
+    width: 300px; /* 设置展开时的宽度 */
+    height: auto; /* 设置展开时的自动高度 */
+    border-radius: 10px; /* 设置展开时的圆角 */
+    background-color: rgba(60, 60, 60, 0.8); /* 设置展开时的深灰色背景 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 设置展开时的阴影 */
+    transition: right 0.5s, width 0.5s, height 0.5s; /* 设置过渡效果 */
+}
+
+/* 黑夜模式下的关于链接样式 */
+.dark-mode .about-link{
+    color: rgba(255, 255, 255, 0.85); /* 设置白色字体颜色 */
+}
+
+/* 黑夜模式下的评论区样式 */
+.dark-mode .comments{
+    background-color: rgba(60, 60, 60, 0.8) !important; /* 设置深灰色背景 */
+}
+
+/* 黑夜模式下输入栏的背景图 */
+.dark-mode .vedit {
+    filter: brightness(0) saturate(100%); /* 调整亮度和饱和度 */
+}

@@ -1,0 +1,125 @@
+/* 搜索条容器样式 */
+.search-bar-container {
+    position: relative; /* 设置为相对定位 */
+    width: 100%; /* 宽度设置为100% */
+    height: 70vh; /* 高度设置为视口高度的70% */
+    overflow: hidden; /* 隐藏溢出的内容 */
+    z-index: 0; /* 设置层级为0 */
+}
+
+/* 背景视频样式 */
+#background-video {
+    position: fixed; /* 设置为固定定位 */
+    top: 0; /* 顶部对齐 */
+    left: 0; /* 左侧对齐 */
+    width: 100%; /* 宽度设置为100% */
+    height: 70%; /* 高度设置为视口高度的70% */
+    object-fit: cover; /* 覆盖整个区域 */
+    border-radius: 10px; /* 添加圆角边框 */
+    z-index: 0; /* 设置层级为0 */
+}
+
+/* 搜索条内容样式 */
+.search-bar-content {
+    position: absolute; /* 设置为绝对定位 */
+    top: 50%; /* 顶部对齐 */
+    left: 50%; /* 左侧对齐 */
+    transform: translate(-50%, -50%); /* 使元素居中 */
+    display: flex; /* 使用Flex布局 */
+    align-items: center; /* 垂直居中对齐 */
+    z-index: 1; /* 设置层级为1 */
+}
+
+/* 搜索条输入框样式 */
+.search-bar-content input {
+    padding: 10px; /* 内边距 */
+    font-size: 16px; /* 字体大小 */
+    margin-right: 10px; /* 右外边距 */
+    border-radius: 5px; /* 圆角边框 */
+    background-color: rgba(255, 255, 255, 0.2); /* 轻微的白色背景 */
+    border: 1px solid #ddd; /* 边框 */
+    width: 300px; /* 宽度 */
+    backdrop-filter: blur(5px); /* 添加模糊效果 */
+    color: black; /* 文字颜色 */
+}
+
+/* 部分标题样式 */
+.section-title {
+    font-size: 24px; /* 字体大小 */
+    margin-bottom: 10px; /* 下外边距 */
+    color: #333; /* 文字颜色 */
+}
+
+/* 评论区样式 */
+.comments-section {
+    margin-top: 20px; /* 上外边距 */
+    padding: 20px; /* 内边距 */
+    background-color: #fff; /* 背景颜色 */
+    border-radius: 10px; /* 圆角边框 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 阴影 */
+}
+
+/* 单条评论样式 */
+.comment {
+    margin-bottom: 15px; /* 下外边距 */
+    padding: 10px; /* 内边距 */
+    background-color: #f9f9f9; /* 背景颜色 */
+    border-radius: 5px; /* 圆角边框 */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* 阴影 */
+}
+
+/* 评论作者样式 */
+.comment-author {
+    font-weight: bold; /* 加粗字体 */
+    color: #333; /* 文字颜色 */
+    margin-bottom: 5px; /* 下外边距 */
+}
+
+/* 评论文本样式 */
+.comment-text {
+    color: #555; /* 文字颜色 */
+    margin: 0; /* 外边距 */
+}
+
+/* 评论表单样式 */
+.comment-form {
+    display: flex; /* 使用Flex布局 */
+    flex-direction: column; /* 纵向排列 */
+}
+
+/* 评论表单输入框和文本域样式 */
+.comment-form input, .comment-form textarea {
+    padding: 10px; /* 内边距 */
+    margin-bottom: 10px; /* 下外边距 */
+    border: 1px solid #ddd; /* 边框 */
+    border-radius: 5px; /* 圆角边框 */
+    font-size: 14px; /* 字体大小 */
+}
+
+/* 评论表单按钮样式 */
+.comment-form button {
+    padding: 10px 20px; /* 内边距 */
+    border: none; /* 移除边框 */
+    border-radius: 5px; /* 圆角边框 */
+    background-color: #333; /* 背景颜色 */
+    color: white; /* 文字颜色 */
+    font-size: 14px; /* 字体大小 */
+    cursor: pointer; /* 鼠标指针样式 */
+    transition: background-color 0.2s; /* 过渡效果 */
+}
+
+/* 鼠标悬停时评论表单按钮样式 */
+.comment-form button:hover {
+    background-color: #555; /* 悬停时背景颜色 */
+}
+
+/* 标题样式 */
+.section-title {
+    font-size: 24px; /* 字体大小 */
+    font-weight: bold; /* 加粗字体 */
+    margin-bottom: 20px; /* 下外边距 */
+    color: #333333; /* 文字颜色 */
+    border-bottom: 2px solid #e0e0e0; /* 下边框 */
+    padding-bottom: 10px; /* 内边距 */
+    text-align: center; /* 居中对齐 */
+}

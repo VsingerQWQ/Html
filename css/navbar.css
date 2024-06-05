@@ -1,0 +1,71 @@
+/* 导航栏样式 */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.5); /* 白天模式白色透明模糊 */
+    backdrop-filter: blur(10px); /* 添加模糊效果 */
+    position: fixed; /* 固定定位 */
+    top: 0; /* 顶部对齐 */
+    width: 100%; /* 宽度为100% */
+    z-index: 1000; /* 层级 */
+    color: black; /* 默认字体颜色为黑色 */
+    display: flex; /* 使用Flex布局 */
+    justify-content: space-between; /* 两端对齐 */
+    align-items: center; /* 垂直居中对齐 */
+    padding: 10px 20px; /* 内边距 */
+    transition: background-color 0.5s, backdrop-filter 0.5s, color 0.5s; /* 平滑过渡效果 */
+}
+
+/* 导航栏链接样式 */
+.navbar a {
+    position: relative; /* 确保伪元素相对于父元素定位 */
+    color: inherit; /* 继承父元素的颜色 */
+    text-decoration: none; /* 去除文本装饰 */
+    padding: 14px 20px; /* 内边距 */
+    transition: background-color 0.5s, color 0.5s; /* 平滑过渡效果 */
+}
+
+/* 导航栏链接伪元素样式 */
+.navbar a::before {
+    content: ''; /* 伪元素内容为空 */
+    position: absolute; /* 绝对定位 */
+    top: 0; /* 放置在导航栏内部 */
+    left: 0; /* 左侧对齐 */
+    right: 0; /* 右侧对齐 */
+    height: 5px; /* 高度 */
+    background-color: rgba(255, 192, 203, 0.9); /* 粉色背景 */
+    opacity: 0; /* 初始隐藏 */
+    transition: opacity 0.5s; /* 平滑过渡效果 */
+}
+
+/* 导航栏链接悬停样式 */
+.navbar a:hover {
+    background-color: rgba(102, 204, 255, 0.5); /* 半透明蓝色背景 */
+}
+
+/* 导航栏链接悬停伪元素样式 */
+.navbar a:hover::before {
+    opacity: 1; /* 悬停时显示 */
+}
+
+/* 导航栏右侧部分样式 */
+.right-section {
+    display: flex; /* 使用Flex布局 */
+    align-items: center; /* 垂直居中对齐 */
+    margin-right: 20px; /* 右外边距 */
+}
+
+/* 搜索按钮和模式切换按钮样式 */
+.search-button,
+.mode-toggle {
+    background: none; /* 无背景 */
+    border: none; /* 无边框 */
+    color: inherit; /* 继承父元素的颜色 */
+    cursor: pointer; /* 鼠标指针样式 */
+    font-size: 16px; /* 字体大小 */
+    margin-left: 10px; /* 左外边距 */
+    transition: color 0.5s; /* 平滑过渡效果 */
+}
+
+/* 模式切换按钮左外边距 */
+.mode-toggle {
+    margin-left: 10px; /* 将模式切换按钮靠左 */
+}

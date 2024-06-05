@@ -1,0 +1,77 @@
+/* 频道样式 */
+.channel {
+    /* 设置内边距 */
+    padding: 10px;
+    /* 设置背景颜色为白色半透明 */
+    background-color: rgba(255, 255, 255, 0.4);
+    /* 设置边框圆角 */
+    border-radius: 10px;
+    /* 设置阴影效果 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* 去除文本装饰 */
+    text-decoration: none;
+    /* 设置文字颜色 */
+    color: #333333;
+    /* 设置过渡效果 */
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    /* 设置为弹性布局 */
+    display: flex;
+    /* 设置垂直居中对齐 */
+    align-items: center;
+    /* 设置文本左对齐 */
+    text-align: left;
+}
+
+/* 鼠标悬停时的样式 */
+.channel:hover {
+    /* 设置向上的平移效果 */
+    transform: translateY(-5px);
+    /* 设置增强的阴影效果 */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* 设置背景颜色为淡蓝色半透明 */
+    background-color: rgba(102, 204, 255, 0.6);
+}
+
+/* 频道图标样式 */
+.channel-icon {
+    /* 设置字体大小 */
+    font-size: 20px;
+    /* 设置图标颜色 */
+    color: #007bff;
+    /* 设置下边距 */
+    margin-bottom: 5px;
+}
+
+/* 频道文本样式 */
+.channel p {
+    /* 设置字体大小 */
+    font-size: 14px;
+    /* 设置文本颜色 */
+    color: #666666;
+    /* 设置上下外边距 */
+    margin: 5px 0 0 0;
+}
+
+/* 频道图片样式 */
+.channel img {
+    /* 设置图片宽度 */
+    width: 50px;
+    /* 设置图片高度 */
+    height: 50px;
+    /* 设置图片边框圆角为圆形 */
+    border-radius: 50%;
+    /* 设置右外边距 */
+    margin-right: 10px;
+}
+
+/* 频道容器样式 */
+.channels {
+    /* 设置为网格布局 */
+    display: grid;
+    /* 设置网格列模板为自适应列，最小宽度150px，最大宽度1fr */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    /* 设置网格项之间的间距 */
+    gap: 10px;
+    /* 设置下外边距 */
+    margin-bottom: 30px;
+}
